@@ -1,13 +1,19 @@
+import axios from "axios";
 import { useState } from "react";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // 🐨 Todo: Exercise #4
     //  นำ Function `login` ใน AuthContext มา Execute ใน Event Handler ตรงนี้
+    const data = {
+      username,
+      password
+    }
+
   };
 
   return (

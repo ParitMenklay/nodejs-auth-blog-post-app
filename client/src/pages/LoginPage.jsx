@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
+import { useAuth } from "../contexts/authentication";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useAuth();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -13,6 +15,7 @@ function LoginPage() {
       username,
       password
     }
+    login(data)
 
   };
 

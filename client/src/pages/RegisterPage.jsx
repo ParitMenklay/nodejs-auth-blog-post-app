@@ -1,11 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
+import { useAuth } from "../contexts/authentication";
 
 function RegisterPage() {
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
+
+  const {register} = useAuth()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -17,8 +20,7 @@ function RegisterPage() {
       firstName,
       lastName
     }
-
-    await axios.post("http://localhost:4000/auth/register", data)
+    register(data)
   };
 
   return (
